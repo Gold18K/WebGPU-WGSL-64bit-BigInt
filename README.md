@@ -23,6 +23,8 @@ So, I decided to split the complete source code so that you can choose the best 
 2) J corresponds to K >> 1 (Left shift);
 3) L corresponds to K >> 5 (Left shift);
 
+### Constructors
+
 - iK_from_i32(_n: i32) -> iK;
 
 Instantiate an iK integer from an i32;
@@ -45,7 +47,7 @@ Instantiate an iK integer from an i32;
 
 - fn iK_from_iJ(_n: iJ) -> iK;
 
-Instantiate an iK integer from an iJ, useful when
+Instantiate an iK integer from an iJ, useful when you realize that the result of your operations might not fit in the current iJ;
 
     @compute
     @workgroup_size(1, 1)
@@ -65,3 +67,4 @@ Instantiate an iK integer from an array of L unsigned integers, useful when movi
         var a = i128_from_u32_array(arr, 1);
     }
 
+### Unary Operators
