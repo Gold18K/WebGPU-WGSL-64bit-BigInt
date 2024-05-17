@@ -19,7 +19,7 @@ So, I decided to split the complete source code so that you can choose the best 
 
 ## Documentation
 
-1) K represents a multiple of 64, ranging from 64 to 524288, extremes included;
+1) K is a power of 2, with the exponent ranging from 6 to 19, extremes included;
 2) J corresponds to K >> 1 (Left shift);
 3) L corresponds to K >> 5 (Left shift);
 
