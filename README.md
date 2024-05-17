@@ -101,3 +101,43 @@ Returns the opposite value of the input iK;
         var a = i256_from_u32(42);
         var b = i256_opposite(a); // Now contains -42
     }
+
+### Logic Operators
+
+- iK_and(_a: iK, _b: iK) -> iK;
+
+Returns the logic AND between _a and _b, the resulting iK will be non negative;
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var a = i64_from_i32(42);
+        var b = i64_from_i32(57);
+        var b = i64_and(a, b);
+    }
+
+- iK_or(_a: iK, _b: iK) -> iK;
+
+Returns the logic OR between _a and _b, the resulting iK will be non negative;
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var a = i64_from_i32(42);
+        var b = i64_from_i32(57);
+        var b = i64_or(a, b);
+    }
+
+- iK_xor(_a: iK, _b: iK) -> iK;
+
+Returns the logic XOR between _a and _b, the resulting iK will be non negative;
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var a = i64_from_i32(42);
+        var b = i64_from_i32(57);
+        var b = i64_xor(a, b);
+    }
+
+
