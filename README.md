@@ -16,3 +16,12 @@ The WGSL shading language has various limitations:
 
 Follows that the source must be more verbose than usual, making the code unpleasantly long.
 So, I decided to split the complete source code so that you can choose the best fit for your shader (If you only need 64bit support, there no need to include the full 2^19 bits (524288bit BigInt) source code, that has a total length of 5392 rows, and just stick with the 64bit one that has 660 rows.)
+
+Documentation:
+
+# i128_from_i32(_n: i32) -> i128;
+
+
+fn i128_from_u32(_n: u32) -> i128;
+fn i128_from_i64(_n: i64) -> i128;
+fn i128_from_u32_array(_number: array<u32, 4>, _sign: i32) -> i128;
