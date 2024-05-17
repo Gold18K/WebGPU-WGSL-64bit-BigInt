@@ -282,7 +282,7 @@ Returns the difference between _a and _b, undefined behaviour in case of underfl
 
 - iK_mul_to_iK(_a: iK, _b: iK) -> iK;
 
-Returns the product between _a and _b, useful when it is known in advance that the product won't exceed the maximum capacity of the current iK. In case of overflow, the resulting iK will only contains the less significant bits;
+Returns the product between _a and _b using the Karatsuba algorithm, useful when it is known in advance that the product won't exceed the maximum capacity of the current iK. In case of overflow, the resulting iK will only contains the less significant bits;
 
     @compute
     @workgroup_size(1, 1)
@@ -294,7 +294,7 @@ Returns the product between _a and _b, useful when it is known in advance that t
 
 - iJ_mul_to_iK(_a: iJ, _b: iJ) -> iK;
 
-Returns the product between _a and _b, and stores the result into the next bigger iK;
+Returns the product between _a and _b using the Karatsuba algorithm, and stores the result into the next bigger iK;
 
     @compute
     @workgroup_size(1, 1)
