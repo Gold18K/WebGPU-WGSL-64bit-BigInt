@@ -19,7 +19,7 @@ So, I decided to split the complete source code so that you can choose the best 
 
 ## Documentation
 
-1) K represents a multiple of 64, ranging from 64 to 524288;
+1) K represents a multiple of 64, ranging from 64 to 524288, extremes included;
 2) J corresponds to K >> 1 (Left shift);
 3) L corresponds to K >> 5 (Left shift);
 
@@ -68,3 +68,36 @@ Instantiate an iK integer from an array of L unsigned integers, useful when movi
     }
 
 ### Unary Operators
+
+- iK_abs(_n: iK) -> iK;
+
+Returns the absolute value of the input iK;
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var a = i256_from_i32(-42);
+        var b = i256_abs(a); // Now contains 42
+    }
+
+- iK_negate(_n: iK) -> iK;
+
+Returns the negative of the input iK;
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var a = i256_from_i32(-42);
+        var b = i256_negate(a); // Value did not change
+    }
+
+- iK_opposite(_n: iK) -> iK;
+
+Returns the opposite value of the input iK;
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var a = i256_from_u32(42);
+        var b = i256_opposite(a); // Now contains -42
+    }
