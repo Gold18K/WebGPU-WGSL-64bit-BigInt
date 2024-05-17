@@ -45,7 +45,7 @@ Instantiate an iK integer from an i32;
         var a = i256_from_u32(42);
     }
 
-- fn iK_from_iJ(_n: iJ) -> iK;
+- iK_from_iJ(_n: iJ) -> iK;
 
 Instantiate an iK integer from an iJ, useful when you realize that the result of your operations might not fit in the current iJ;
 
@@ -56,7 +56,7 @@ Instantiate an iK integer from an iJ, useful when you realize that the result of
         var b = i128_from_i64(a);
     }
 
-- fn iK_from_u32_array(_number: array<u32, L>, _sign: i32) -> iK;
+- iK_from_u32_array(_number: array<u32, L>, _sign: i32) -> iK;
 
 Instantiate an iK integer from an array of L unsigned integers, useful when moving a BigInt represented as L unsigned integers from CPU to GPU;
 
