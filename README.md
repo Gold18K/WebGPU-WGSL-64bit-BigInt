@@ -25,15 +25,11 @@ J corresponds to K >> 1 (Left shift);
 
 Instantiate a iK integer;
 
-> @compute
-> 
-> @workgroup_size(1, 1)
-> 
-> fn cs() {
-> 
->     var n = i256_from_u32_array(42);
-> 
-> }
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var n = i256_from_u32_array(42);
+    }
 
 
 
