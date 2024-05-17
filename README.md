@@ -306,7 +306,7 @@ Returns the product between _a and _b, and stores the result into the next bigge
 
 - iK_div(_a: iK, _b: iK) -> array<iK, 2>;
 
-Returns the quotient and remainder of the division between _a and _b, and stores the result into an array of two elements {Quotient, Remainder};
+Returns the quotient and remainder of the division between _a and _b, and stores the result into an array of size two {Quotient, Remainder};
 
     @compute
     @workgroup_size(1, 1)
