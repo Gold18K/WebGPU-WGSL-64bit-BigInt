@@ -225,3 +225,93 @@ Returns true if _a is less than or equal to _b;
         var b = i64_from_i32(42);
         var c = i64_less_eq(a, b); // Now contains true
     }
+
+### Max and Min operators
+
+- iK_max(_a: iK, _b: iK) -> iK;
+
+Returns the greatest number between _a and _b;
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var a = i64_from_i32(-32);
+        var b = i64_from_i32(-76);
+        var c = i64_max(a, b); // Now contains -32
+    }
+
+- iK_min(_a: iK, _b: iK) -> iK;
+
+Returns the smallest number between _a and _b;
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var a = i64_from_i32(-32);
+        var b = i64_from_i32(-76);
+        var c = i64_min(a, b); // Now contains -76
+    }
+
+### Sum and Sub operators
+
+- iK_sum(_a: iK, _b: iK) -> iK;
+
+Returns the sum between _a and _b, undefined behaviour in case of overflow;
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var a = i2048_from_i32(50);
+        var b = i2048_from_i32(50);
+        var c = i2048_sum(a, b); // Now contains 100
+    }
+
+- iK_sub(_a: iK, _b: iK) -> iK;
+
+Returns the difference between _a and _b, undefined behaviour in case of underflow;
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var a = i4096_from_i32(50);
+        var b = i4096_from_i32(50);
+        var c = i4096_sum(a, b); // Now contains 0
+    }
+
+### Mul and Div operators
+
+- iK_mul_to_iK(_a: iK, _b: iK) -> iK;
+
+Returns the product between _a and _b, useful when it is known in advance that the product won't exceed the maximum capacity of the current iK. In case of overflow, the resulting iK will only contains the less significant bits;
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var a = i64_from_i32(-11);
+        var b = i64_from_i32(10);
+        var c = i64_mul_to_i64(a, b); // Now contains -110
+    }
+
+- iJ_mul_to_iK(_a: iJ, _b: iJ) -> iK;
+
+Returns the product between _a and _b, and stores the result into the next bigger iK;
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var a = i128_from_i32(-11);
+        var b = i128_from_i32(10);
+        var c = i128_mul_to_i256(a, b); // c is a i256, and now contains -110
+    }
+
+- iK_div(_a: iK, _b: iK) -> array<iK, 2>;
+
+Returns the quotient and remainder of the division between _a and _b, and stores the result into an array of two elements {Quotient, Remainder};
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var a = i128_from_i32(10);
+        var b = i128_from_i32(3);
+        var c = i128_div(a, b); // c is array<i128, 2>(3, 1)
+    }
