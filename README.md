@@ -20,19 +20,47 @@ So, I decided to split the complete source code so that you can choose the best 
 ## Documentation
 K represents a multiple of 64, ranging from 64 to 524288;
 J corresponds to K >> 1 (Left shift);
+L corresponds to K >> 5 (Left shift);
 
 - iK_from_i32(_n: i32) -> iK;
 
-Instantiate a iK integer;
+Instantiate an iK integer from an i32;
 
     @compute
     @workgroup_size(1, 1)
     fn cs() {
-        var n = i256_from_u32_array(42);
+        var a = i256_from_i32(-42);
     }
 
+- iK_from_u32(_n: u32) -> iK;
 
+Instantiate an iK integer from an i32;
 
-fn i128_from_u32(_n: u32) -> i128;
-fn i128_from_i64(_n: i64) -> i128;
-fn i128_from_u32_array(_number: array<u32, 4>, _sign: i32) -> i128;
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var a = i256_from_u32(42);
+    }
+
+- fn iK_from_iJ(_n: iJ) -> iK;
+
+Instantiate an iK integer from an iJ, useful when
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var a = i64_from_i32(-42);
+        var b = i128_from_i64(a);
+    }
+
+- fn iK_from_u32_array(_number: array<u32, L>, _sign: i32) -> iK;
+
+Instantiate an iK integer from an array of L unsigned integers, useful when moving a BigInt represented as L unsigned integers from CPU to GPU;
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var arr = array<u32, 4>(1, 2, 3, 4);
+        var a = i128_from_u32_array(arr, 1);
+    }
+
