@@ -311,7 +311,7 @@ Returns the quotient and remainder of the division between _a and _b, and stores
     @compute
     @workgroup_size(1, 1)
     fn cs() {
-        var a = i128_from_i32(10);
+        var a = i128_from_i32(11);
         var b = i128_from_i32(3);
-        var c = i128_div(a, b); // c is array<i128, 2>(3, 1)
+        var c = i128_div(a, b); // c is array<i128, 2>(i128_from_u32(3), i128_from_u32(2))
     }
