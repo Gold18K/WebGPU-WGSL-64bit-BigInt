@@ -18,6 +18,7 @@ Follows that the source must be more verbose than usual, making the code unpleas
 So, I decided to split the complete source code so that you can choose the best fit for your shader (If you only need 64bit support, there no need to include the full 2^19 bits (524288bit BigInt) source code, that has a total length of 5392 rows, and just stick with the 64bit one that has 660 rows.)
 
 ## Documentation
+
 K represents a multiple of 64, ranging from 64 to 524288;
 J corresponds to K >> 1 (Left shift);
 L corresponds to K >> 5 (Left shift);
