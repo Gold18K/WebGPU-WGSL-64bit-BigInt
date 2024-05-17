@@ -164,3 +164,64 @@ Returns the number iK shifted to the right _s bits;
         var b = i1024_right_shift(a, 1); // Now contains 0
     }
 
+### Comparison operators
+
+- iK_eq(_a: iK, _b: iK) -> bool;
+
+Returns true if _a is equal to _b;
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var a = i64_from_i32(1);
+        var b = i64_from_i32(2);
+        var c = i64_eq(a, b); // Now contains false
+    }
+
+- iK_greater(_a: iK, _b: iK) -> bool;
+
+Returns true if _a is greater than _b;
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var a = i128_from_i32(2);
+        var b = i128_from_i32(1);
+        var c = i128_greater(a, b); // Now contains true
+    }
+
+- iK_greater_eq(_a: iK, _b: iK) -> bool;
+
+Returns true if _a is greater than or equal to _b;
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var a = i128_from_i32(5);
+        var b = i128_from_i32(5);
+        var c = i128_greater_eq(a, b); // Now contains true
+    }
+
+- iK_less(_a: iK, _b: iK) -> bool;
+
+Returns true if _a is less than _b;
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var a = i256_from_i32(10);
+        var b = i256_from_i32(5);
+        var c = i256_less(a, b); // Now contains false
+    }
+
+- iK_less_eq(_a: iK, _b: iK) -> bool;
+
+Returns true if _a is less than or equal to _b;
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var a = i64_from_i32(42);
+        var b = i64_from_i32(42);
+        var c = i64_less_eq(a, b); // Now contains true
+    }
