@@ -20,7 +20,7 @@ So, I decided to split the complete source code so that you can choose the best 
 _To use it, just copy the content of ONE of the .wgsl files present in the "Source Codes" folder, and paste it into the string of your WGSL shader._
 _Using the content of a particular .wgsl file automatically includes support for all smaller integers._
 
-**Disclaimer: because of WebGPU intrinsic stack size limitations and your specific GPU, your browser might not be able to compile shaders that makes use of the bigger BigInts.**
+_**Disclaimer: because of WebGPU intrinsic stack size limitations and your specific GPU, your browser might not be able to compile shaders that makes use of the bigger BigInts.**_
 
 ## Documentation
 
