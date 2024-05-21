@@ -37,7 +37,7 @@ Instantiate an iK integer from an i32;
     @compute
     @workgroup_size(1, 1)
     fn cs() {
-        var a = i256_from_i32(-42);
+        var a = i128_from_i32(-42);
     }
 
 - iK_from_u32(_n: u32) -> iK;
@@ -47,7 +47,7 @@ Instantiate an iK integer from an i32;
     @compute
     @workgroup_size(1, 1)
     fn cs() {
-        var a = i256_from_u32(42);
+        var a = i64_from_u32(42);
     }
 
 - iK_from_iJ(_n: iJ) -> iK;
@@ -165,8 +165,8 @@ Returns the number iK shifted to the right _s bits;
     @compute
     @workgroup_size(1, 1)
     fn cs() {
-        var a = i1024_from_i32(1);
-        var b = i1024_right_shift(a, 1); // Now contains 0
+        var a = i128_from_i32(1);
+        var b = i128_right_shift(a, 1); // Now contains 0
     }
 
 ### Comparison operators
@@ -266,9 +266,9 @@ Returns the sum between _a and _b, undefined behaviour in case of overflow;
     @compute
     @workgroup_size(1, 1)
     fn cs() {
-        var a = i2048_from_i32(50);
-        var b = i2048_from_i32(50);
-        var c = i2048_sum(a, b); // Now contains 100
+        var a = i512_from_i32(50);
+        var b = i512_from_i32(50);
+        var c = i512_sum(a, b); // Now contains 100
     }
 
 - iK_sub(_a: iK, _b: iK) -> iK;
@@ -278,9 +278,9 @@ Returns the difference between _a and _b, undefined behaviour in case of underfl
     @compute
     @workgroup_size(1, 1)
     fn cs() {
-        var a = i4096_from_i32(50);
-        var b = i4096_from_i32(50);
-        var c = i4096_sum(a, b); // Now contains 0
+        var a = i256_from_i32(50);
+        var b = i256_from_i32(50);
+        var c = i256_sum(a, b); // Now contains 0
     }
 
 ### Mul and Div operators
