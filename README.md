@@ -85,7 +85,7 @@ Returns the absolute value of the input iK;
 
 - iK_negate(_n: iK) -> iK;
 
-Returns the negative of the input iK;
+Returns the opposite of the absolute value of the input iK;
 
     @compute
     @workgroup_size(1, 1)
