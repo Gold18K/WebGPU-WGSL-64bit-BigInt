@@ -114,9 +114,9 @@ Returns the logic AND between _a and _b, the resulting iK will be non negative;
     @compute
     @workgroup_size(1, 1)
     fn cs() {
-        var a = i64_from_i32(42);
-        var b = i64_from_i32(57);
-        var c = i64_and(a, b);
+        var a = i64_from_i32(0xF0F0);
+        var b = i64_from_i32(0xFF00);
+        var c = i64_and(a, b); // Now contains 0xF000
     }
 
 - iK_or(_a: iK, _b: iK) -> iK;
@@ -126,9 +126,9 @@ Returns the logic OR between _a and _b, the resulting iK will be non negative;
     @compute
     @workgroup_size(1, 1)
     fn cs() {
-        var a = i64_from_i32(42);
-        var b = i64_from_i32(57);
-        var c = i64_or(a, b);
+        var a = i64_from_i32(0xF0F0);
+        var b = i64_from_i32(0xFF00);
+        var c = i64_or(a, b); // Now contains 0xFFF0
     }
 
 - iK_xor(_a: iK, _b: iK) -> iK;
@@ -138,9 +138,9 @@ Returns the logic XOR between _a and _b, the resulting iK will be non negative;
     @compute
     @workgroup_size(1, 1)
     fn cs() {
-        var a = i64_from_i32(42);
-        var b = i64_from_i32(57);
-        var c = i64_xor(a, b);
+        var a = i64_from_i32(0xF0F0);
+        var b = i64_from_i32(0xFF00);
+        var c = i64_xor(a, b); // Now contains 0x0FF0
     }
 
 ### Bitwise shift operators
