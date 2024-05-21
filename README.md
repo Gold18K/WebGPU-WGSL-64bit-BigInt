@@ -50,7 +50,7 @@ Instantiate an iK integer from an i32;
 
 - iK_from_iJ(_n: iJ) -> iK;
 
-Instantiate an iK integer from an iJ, useful when you realize that the result of your operations might not fit in the current iJ;
+Instantiate an iK integer from an iJ, useful when you realize that the result of your future operations might not fit in the current iJ;
 
     @compute
     @workgroup_size(1, 1)
