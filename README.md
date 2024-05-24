@@ -63,7 +63,7 @@ Instantiate an iK integer from an iJ, useful when you realize that the result of
 
 - iK_from_u32_array(_number: array<u32, L>, _sign: i32) -> iK;
 
-Instantiate an iK integer from an array of L unsigned integers, useful when moving a BigInt represented as L unsigned integers from CPU to GPU;
+Instantiate an iK integer from an array of L u32 integers, useful when moving a BigInt from CPU to GPU;
 
     @compute
     @workgroup_size(1, 1)
