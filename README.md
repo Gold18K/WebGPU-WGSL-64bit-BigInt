@@ -42,7 +42,7 @@ Instantiate an iK integer from an i32;
 
 - iK_from_u32(_n: u32) -> iK;
 
-Instantiate an iK integer from an i32;
+Instantiate an iK integer from an u32;
 
     @compute
     @workgroup_size(1, 1)
