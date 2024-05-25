@@ -25,8 +25,8 @@ _Using the content of a particular .wgsl file automatically includes support for
 ## Documentation
 
 1) K is a power of 2, with the exponent ranging from 6 to 19, extremes included;
-2) J corresponds to K >> 1 (Left shift);
-3) L corresponds to K >> 5 (Left shift);
+2) J corresponds to K >> 1 (Right shift);
+3) L corresponds to K >> 5 (Right shift);
 
 ### Constructors
 
