@@ -1,5 +1,5 @@
 # WebGPU-WGSL-BigInt
-This repository contains various source codes needed to be able to work with BigInts ("Arbitrary" large signed integers) in your WGSL shaders.
+This repository contains various source codes needed to be able to work with 64bit arithmetic and more, in your WGSL shaders.
 
 More precisely, it allows to manage operations between BigInts with length up to 2^19 bits, or 157826 decimal digits.
 
