@@ -12,7 +12,7 @@ The WGSL shading language has various limitations:
 - No arbitrary length arrays;
 - No implicit scalar conversion;
 - No recursion;
-- No Cyclic dependencies;
+- No cyclic dependencies;
 
 Follows that the source must be more verbose than usual, making the code unpleasantly long.
 So, I decided to split the complete source code so that you can choose the best fit for your shader (If you only need 64bit support, there's no need to include the full 2^19 bits (524288bit BigInt) source code, that has a total length of 5392 rows, and just stick with the 64bit one that has 660 rows.)
@@ -311,7 +311,7 @@ Returns the product between _a and _b using the Karatsuba algorithm, and stores 
 
 - iK_div(_a: iK, _b: iK) -> array<iK, 2>;
 
-Returns the quotient and remainder of the division between _a and _b, and stores the result into an array of size two {Quotient, Remainder}; In case of division by zero, the resulting quotient and remainder will be both iK_from_u32(0)); 
+Returns the quotient and remainder of the division between _a and _b, and stores the result into an array of size two {Quotient, Remainder}; In case of division by zero, the resulting quotient and remainder will be both iK_from_u32(0); 
 
     @compute
     @workgroup_size(1, 1)
