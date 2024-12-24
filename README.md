@@ -17,7 +17,7 @@ The WGSL shading language has various limitations:
 Follows that the source must be more verbose than usual, making the code unpleasantly long.
 So, I decided to split the complete source code so that you can choose the best fit for your shader (If you only need 64bit support, there's no need to include the full 2^19 bits (524288bit BigInt) source code, that has a total length of 5392 rows, and just stick with the 64bit one that has 660 rows.)
 
-_To use it, just copy the content of ONE of the .wgsl files present in the "Source Codes" folder, and paste it into the string of your WGSL shader._
+To use it, just copy the content of ONE of the .wgsl files present in the "Source Codes" folder, and paste it into the string of your WGSL shader.
 _Using the content of a particular .wgsl file automatically includes support for all smaller integers._
 
 ### _Disclaimer: because of WebGPU intrinsic stack size limitations for your specific GPU, your browser might not be able to compile shaders that make use of the bigger BigInts._
