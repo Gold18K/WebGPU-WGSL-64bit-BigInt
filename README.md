@@ -69,7 +69,7 @@ Instantiate an iK integer from an array of L u32 integers, useful when moving a 
     @workgroup_size(1, 1)
     fn cs() {
         var arr = array<u32, 4>(1, 2, 3, 4);
-        var a = i128_from_u32_array(arr, 1); // Now contains 1*2^96 + 2*2^64 + 3*2^32 + 4, or 79228162551157825753847955460
+        var a   = i128_from_u32_array(arr, 1); // Now contains 1*2^96 + 2*2^64 + 3*2^32 + 4, or 79228162551157825753847955460
     }
 
 ### Unary Operators
