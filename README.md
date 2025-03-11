@@ -326,7 +326,7 @@ In case of division by zero, the resulting quotient and remainder will be both i
 - iK_powermod(_b: iK, _e: iK, _m: iK) -> iK;
 
 Modular exponentiation operation, returns (_b ^ _e) mod _m.
-If (_m - 1) ^ 2 >= 2 ^ K, result is undefined, and you should use the next bigger BigInt;
+If (_m - 1) ^ 2 ≥ 2 ^ K, result is undefined, and you should use the next bigger BigInt;
 If _m is 0, result is iK_from_i32(-1);
 
     @compute
