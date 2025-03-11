@@ -519,6 +519,28 @@ fn i64_div(_a: i64, _b: i64) -> array<i64, 2> {
     return qr;
 }
 
+// PowerMod operators
+fn i64_powermod(_b: i64, _e: i64, _m: i64) -> i64 {
+    if (i64_eq(_m, i64_from_u32(0))) {
+        return i64_from_i32(-1);
+    }
+    if (i64_eq(_m, i64_from_u32(1))) {
+        return i64_from_u32(0);
+    }
+    var base     = _b;
+    var exponent = _e;
+    var result   = i64_from_i32(1);
+    base = i64_div(base, _m)[1];
+    while (i64_greater(exponent, i64_from_u32(0))) {
+        if (exponent.number[1] % 2 == 1) {
+            result = i64_div(i64_mul_to_i64(result, base), _m)[1];
+        }
+        exponent = i64_right_shift(exponent, 1);
+        base     = i64_div(i64_mul_to_i64(base, base), _m)[1];
+    }
+    return result;
+}
+
 // Auxiliary functions
 fn summation64(_a: i64, _b: i64) -> i64 {
     var r = i64_from_u32(0);
