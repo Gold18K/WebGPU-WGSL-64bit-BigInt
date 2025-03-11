@@ -15,7 +15,7 @@ The WGSL shading language has various limitations:
 - No cyclic dependencies;
 
 Follows that the source must be more verbose than usual, making the code unpleasantly long.
-So, I decided to split the complete source code so that you can choose the best fit for your shader (If you only need 64bit support, there's no need to include the full 2^19 bits (524288bit BigInt) source code, that has a total length of 5392 rows, and just stick with the 64bit one that has 660 rows.)
+So, I decided to split the complete source code so that you can choose the best fit for your shader (If you only need 64bit support, there's no need to include the full 2^16 bits source code, that has a total length of 4522 rows, and just stick with the 64bit one that has 682 rows.)
 
 To use it, just copy the content of ONE of the .wgsl files present in the "Source Codes" folder, and paste it into the string of your WGSL shader.
 _Using the content of a particular .wgsl file automatically includes support for all smaller integers._
