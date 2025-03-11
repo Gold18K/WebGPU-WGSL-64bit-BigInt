@@ -287,7 +287,8 @@ Returns the difference between _a and _b, undefined behaviour in case of underfl
 
 - iK_mul_to_iK(_a: iK, _b: iK) -> iK;
 
-Returns the product between _a and _b using the Karatsuba algorithm, useful when it is known in advance that the product won't exceed the maximum capacity of the current iK. In case of overflow, the resulting iK will only contains the less significant bits;
+Returns the product between _a and _b using the Karatsuba algorithm, useful when it is known in advance that the product won't exceed the maximum capacity of the current iK.
+In case of overflow, the resulting iK will only contains the less significant bits;
 
     @compute
     @workgroup_size(1, 1)
@@ -311,7 +312,8 @@ Returns the product between _a and _b using the Karatsuba algorithm, and stores 
 
 - iK_div(_a: iK, _b: iK) -> array<iK, 2>;
 
-Returns the quotient and remainder of the division between _a and _b, and stores the result into an array of size two {Quotient, Remainder}; In case of division by zero, the resulting quotient and remainder will be both iK_from_u32(0); 
+Returns the quotient and remainder of the division between _a and _b, and stores the result into an array of size two {Quotient, Remainder};
+In case of division by zero, the resulting quotient and remainder will be both iK_from_u32(0); 
 
     @compute
     @workgroup_size(1, 1)
@@ -319,4 +321,20 @@ Returns the quotient and remainder of the division between _a and _b, and stores
         var a = i128_from_i32(11);
         var b = i128_from_i32(3);
         var c = i128_div(a, b); // c is array<i128, 2>(i128_from_u32(3), i128_from_u32(2))
+    }
+
+- iK_powermod(_b: iK, _e: iK, _m: iK) -> iK;
+
+Modular exponentiation operation, returns (_b ^ _e) mod _m.
+If (_m - 1) ^ 2 >= 2 ^ K, result is undefined, and you should use the next bigger BigInt;
+If _m is 0, result is iK_from_i32(-1);
+
+    @compute
+    @workgroup_size(1, 1)
+    fn cs() {
+        var b = i64_from_u32(11);
+        var e = i64_from_u32(2);
+        var m = i64_from_u32(9);
+
+        var res = i64_powermod(b, e, m); // res is a i64 and contains 4, that is, 11 ^ 2 mod 9
     }
