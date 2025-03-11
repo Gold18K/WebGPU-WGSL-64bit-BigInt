@@ -1,7 +1,7 @@
 # WebGPU-WGSL-BigInt
 This repository contains various WGSL source codes needed to be able to use, in your shaders, 64bit integer arithmetic and more!
 
-More precisely, it allows to manage arithmetic and logical operations between BigInts with length up to 2^19 bits, or 157826 decimal digits.
+More precisely, it allows to manage arithmetic and logical operations between BigInts with length up to 2^16 bits, or 19728 decimal digits.
 
 Now, why different source codes?
 
