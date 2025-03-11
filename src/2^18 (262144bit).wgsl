@@ -3867,6 +3867,268 @@ fn i262144_div(_a: i262144, _b: i262144) -> array<i262144, 2> {
     return qr;
 }
 
+// PowerMod operators
+fn i64_powermod(_b: i64, _e: i64, _m: i64) -> i64 {
+    if (i64_eq(_m, i64_from_u32(0))) {
+        return i64_from_i32(-1);
+    }
+    if (i64_eq(_m, i64_from_u32(1))) {
+        return i64_from_u32(0);
+    }
+    var base     = _b;
+    var exponent = _e;
+    var result   = i64_from_i32(1);
+    base = i64_div(base, _m)[1];
+    while (i64_greater(exponent, i64_from_u32(0))) {
+        if (exponent.number[1] % 2 == 1) {
+            result = i64_div(i64_mul_to_i64(result, base), _m)[1];
+        }
+        exponent = i64_right_shift(exponent, 1);
+        base     = i64_div(i64_mul_to_i64(base, base), _m)[1];
+    }
+    return result;
+}
+fn i128_powermod(_b: i128, _e: i128, _m: i128) -> i128 {
+    if (i128_eq(_m, i128_from_u32(0))) {
+        return i128_from_i32(-1);
+    }
+    if (i128_eq(_m, i128_from_u32(1))) {
+        return i128_from_u32(0);
+    }
+    var base     = _b;
+    var exponent = _e;
+    var result   = i128_from_i32(1);
+    base = i128_div(base, _m)[1];
+    while (i128_greater(exponent, i128_from_u32(0))) {
+        if (exponent.number[3] % 2 == 1) {
+            result = i128_div(i128_mul_to_i128(result, base), _m)[1];
+        }
+        exponent = i128_right_shift(exponent, 1);
+        base     = i128_div(i128_mul_to_i128(base, base), _m)[1];
+    }
+    return result;
+}
+fn i256_powermod(_b: i256, _e: i256, _m: i256) -> i256 {
+    if (i256_eq(_m, i256_from_u32(0))) {
+        return i256_from_i32(-1);
+    }
+    if (i256_eq(_m, i256_from_u32(1))) {
+        return i256_from_u32(0);
+    }
+    var base     = _b;
+    var exponent = _e;
+    var result   = i256_from_i32(1);
+    base = i256_div(base, _m)[1];
+    while (i256_greater(exponent, i256_from_u32(0))) {
+        if (exponent.number[7] % 2 == 1) {
+            result = i256_div(i256_mul_to_i256(result, base), _m)[1];
+        }
+        exponent = i256_right_shift(exponent, 1);
+        base     = i256_div(i256_mul_to_i256(base, base), _m)[1];
+    }
+    return result;
+}
+fn i512_powermod(_b: i512, _e: i512, _m: i512) -> i512 {
+    if (i512_eq(_m, i512_from_u32(0))) {
+        return i512_from_i32(-1);
+    }
+    if (i512_eq(_m, i512_from_u32(1))) {
+        return i512_from_u32(0);
+    }
+    var base     = _b;
+    var exponent = _e;
+    var result   = i512_from_i32(1);
+    base = i512_div(base, _m)[1];
+    while (i512_greater(exponent, i512_from_u32(0))) {
+        if (exponent.number[15] % 2 == 1) {
+            result = i512_div(i512_mul_to_i512(result, base), _m)[1];
+        }
+        exponent = i512_right_shift(exponent, 1);
+        base     = i512_div(i512_mul_to_i512(base, base), _m)[1];
+    }
+    return result;
+}
+fn i1024_powermod(_b: i1024, _e: i1024, _m: i1024) -> i1024 {
+    if (i1024_eq(_m, i1024_from_u32(0))) {
+        return i1024_from_i32(-1);
+    }
+    if (i1024_eq(_m, i1024_from_u32(1))) {
+        return i1024_from_u32(0);
+    }
+    var base     = _b;
+    var exponent = _e;
+    var result   = i1024_from_i32(1);
+    base = i1024_div(base, _m)[1];
+    while (i1024_greater(exponent, i1024_from_u32(0))) {
+        if (exponent.number[31] % 2 == 1) {
+            result = i1024_div(i1024_mul_to_i1024(result, base), _m)[1];
+        }
+        exponent = i1024_right_shift(exponent, 1);
+        base     = i1024_div(i1024_mul_to_i1024(base, base), _m)[1];
+    }
+    return result;
+}
+fn i2048_powermod(_b: i2048, _e: i2048, _m: i2048) -> i2048 {
+    if (i2048_eq(_m, i2048_from_u32(0))) {
+        return i2048_from_i32(-1);
+    }
+    if (i2048_eq(_m, i2048_from_u32(1))) {
+        return i2048_from_u32(0);
+    }
+    var base     = _b;
+    var exponent = _e;
+    var result   = i2048_from_i32(1);
+    base = i2048_div(base, _m)[1];
+    while (i2048_greater(exponent, i2048_from_u32(0))) {
+        if (exponent.number[63] % 2 == 1) {
+            result = i2048_div(i2048_mul_to_i2048(result, base), _m)[1];
+        }
+        exponent = i2048_right_shift(exponent, 1);
+        base     = i2048_div(i2048_mul_to_i2048(base, base), _m)[1];
+    }
+    return result;
+}
+fn i4096_powermod(_b: i4096, _e: i4096, _m: i4096) -> i4096 {
+    if (i4096_eq(_m, i4096_from_u32(0))) {
+        return i4096_from_i32(-1);
+    }
+    if (i4096_eq(_m, i4096_from_u32(1))) {
+        return i4096_from_u32(0);
+    }
+    var base     = _b;
+    var exponent = _e;
+    var result   = i4096_from_i32(1);
+    base = i4096_div(base, _m)[1];
+    while (i4096_greater(exponent, i4096_from_u32(0))) {
+        if (exponent.number[127] % 2 == 1) {
+            result = i4096_div(i4096_mul_to_i4096(result, base), _m)[1];
+        }
+        exponent = i4096_right_shift(exponent, 1);
+        base     = i4096_div(i4096_mul_to_i4096(base, base), _m)[1];
+    }
+    return result;
+}
+fn i8192_powermod(_b: i8192, _e: i8192, _m: i8192) -> i8192 {
+    if (i8192_eq(_m, i8192_from_u32(0))) {
+        return i8192_from_i32(-1);
+    }
+    if (i8192_eq(_m, i8192_from_u32(1))) {
+        return i8192_from_u32(0);
+    }
+    var base     = _b;
+    var exponent = _e;
+    var result   = i8192_from_i32(1);
+    base = i8192_div(base, _m)[1];
+    while (i8192_greater(exponent, i8192_from_u32(0))) {
+        if (exponent.number[255] % 2 == 1) {
+            result = i8192_div(i8192_mul_to_i8192(result, base), _m)[1];
+        }
+        exponent = i8192_right_shift(exponent, 1);
+        base     = i8192_div(i8192_mul_to_i8192(base, base), _m)[1];
+    }
+    return result;
+}
+fn i16384_powermod(_b: i16384, _e: i16384, _m: i16384) -> i16384 {
+    if (i16384_eq(_m, i16384_from_u32(0))) {
+        return i16384_from_i32(-1);
+    }
+    if (i16384_eq(_m, i16384_from_u32(1))) {
+        return i16384_from_u32(0);
+    }
+    var base     = _b;
+    var exponent = _e;
+    var result   = i16384_from_i32(1);
+    base = i16384_div(base, _m)[1];
+    while (i16384_greater(exponent, i16384_from_u32(0))) {
+        if (exponent.number[511] % 2 == 1) {
+            result = i16384_div(i16384_mul_to_i16384(result, base), _m)[1];
+        }
+        exponent = i16384_right_shift(exponent, 1);
+        base     = i16384_div(i16384_mul_to_i16384(base, base), _m)[1];
+    }
+    return result;
+}
+fn i32768_powermod(_b: i32768, _e: i32768, _m: i32768) -> i32768 {
+    if (i32768_eq(_m, i32768_from_u32(0))) {
+        return i32768_from_i32(-1);
+    }
+    if (i32768_eq(_m, i32768_from_u32(1))) {
+        return i32768_from_u32(0);
+    }
+    var base     = _b;
+    var exponent = _e;
+    var result   = i32768_from_i32(1);
+    base = i32768_div(base, _m)[1];
+    while (i32768_greater(exponent, i32768_from_u32(0))) {
+        if (exponent.number[1023] % 2 == 1) {
+            result = i32768_div(i32768_mul_to_i32768(result, base), _m)[1];
+        }
+        exponent = i32768_right_shift(exponent, 1);
+        base     = i32768_div(i32768_mul_to_i32768(base, base), _m)[1];
+    }
+    return result;
+}
+fn i65536_powermod(_b: i65536, _e: i65536, _m: i65536) -> i65536 {
+    if (i65536_eq(_m, i65536_from_u32(0))) {
+        return i65536_from_i32(-1);
+    }
+    if (i65536_eq(_m, i65536_from_u32(1))) {
+        return i65536_from_u32(0);
+    }
+    var base     = _b;
+    var exponent = _e;
+    var result   = i65536_from_i32(1);
+    base = i65536_div(base, _m)[1];
+    while (i65536_greater(exponent, i65536_from_u32(0))) {
+        if (exponent.number[2047] % 2 == 1) {
+            result = i65536_div(i65536_mul_to_i65536(result, base), _m)[1];
+        }
+        exponent = i65536_right_shift(exponent, 1);
+        base     = i65536_div(i65536_mul_to_i65536(base, base), _m)[1];
+    }
+    return result;
+}
+fn i131072_powermod(_b: i131072, _e: i131072, _m: i131072) -> i131072 {
+    if (i131072_eq(_m, i131072_from_u32(0))) {
+        return i131072_from_i32(-1);
+    }
+    if (i131072_eq(_m, i131072_from_u32(1))) {
+        return i131072_from_u32(0);
+    }
+    var base     = _b;
+    var exponent = _e;
+    var result   = i131072_from_i32(1);
+    base = i131072_div(base, _m)[1];
+    while (i131072_greater(exponent, i131072_from_u32(0))) {
+        if (exponent.number[4095] % 2 == 1) {
+            result = i131072_div(i131072_mul_to_i131072(result, base), _m)[1];
+        }
+        exponent = i131072_right_shift(exponent, 1);
+        base     = i131072_div(i131072_mul_to_i131072(base, base), _m)[1];
+    }
+    return result;
+}
+fn i262144_powermod(_b: i262144, _e: i262144, _m: i262144) -> i262144 {
+    if (i262144_eq(_m, i262144_from_u32(0))) {
+        return i262144_from_i32(-1);
+    }
+    if (i262144_eq(_m, i262144_from_u32(1))) {
+        return i262144_from_u32(0);
+    }
+    var base     = _b;
+    var exponent = _e;
+    var result   = i262144_from_i32(1);
+    base = i262144_div(base, _m)[1];
+    while (i262144_greater(exponent, i262144_from_u32(0))) {
+        if (exponent.number[8191] % 2 == 1) {
+            result = i262144_div(i262144_mul_to_i262144(result, base), _m)[1];
+        }
+        exponent = i262144_right_shift(exponent, 1);
+        base     = i262144_div(i262144_mul_to_i262144(base, base), _m)[1];
+    }
+    return result;
+}
+
 // Auxiliary functions
 fn summation64(_a: i64, _b: i64) -> i64 {
     var r = i64_from_u32(0);
