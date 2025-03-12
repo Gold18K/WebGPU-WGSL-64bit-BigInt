@@ -344,5 +344,5 @@ If _m is 0, result is iK_from_i32(-1);
         var e = i64_from_u32(2);
         var m = i64_from_u32(9);
 
-        var res = i64_powermod(b, e, m); // res is a i64 and contains 4, that is, 11 ^ 2 mod 9
+        var res = i64_powermod(b, e, m); // res is a i64 and now contains 4, that is, 11 ^ 2 mod 9
     }
