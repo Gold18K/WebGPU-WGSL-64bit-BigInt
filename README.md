@@ -65,6 +65,8 @@ Instantiate an iK integer from an iJ, useful when you realize that the result of
 
 Instantiate an iK integer from an array of L u32 integers, useful when moving a BigInt from CPU to GPU;
 
+_sign must be either 1 (Non-negative integer) or -1 (Negative integer), undefined behaviour otherwise;
+
     @compute
     @workgroup_size(1, 1)
     fn cs() {
@@ -287,7 +289,7 @@ Returns the difference between _a and _b, undefined behaviour in case of underfl
 
 - iK_mul_to_iK(_a: iK, _b: iK) -> iK;
 
-Returns the product between _a and _b using the Karatsuba algorithm, useful when it is known in advance that the product won't exceed the maximum capacity of the current iK.
+Returns the product between _a and _b using the Karatsuba algorithm, useful when it is known in advance that the product won't exceed the maximum capacity of the current iK;
 
 In case of overflow, the resulting iK will only contains the less significant bits;
 
@@ -327,7 +329,7 @@ In case of division by zero, the resulting quotient and remainder will be both i
 
 - iK_powermod(_b: iK, _e: iK, _m: iK) -> iK;
 
-Modular exponentiation operation, returns (_b ^ _e) mod _m.
+Modular exponentiation operation, returns (_b ^ _e) mod _m;
 
 _b, _e and _m are assumed non-negative;
 
