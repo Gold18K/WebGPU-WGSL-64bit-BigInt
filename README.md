@@ -24,7 +24,7 @@ _Using the content of a particular .wgsl file automatically includes support for
 
 ## Documentation
 
-1) K is a power of 2, with the exponent ranging from 6 to 19, extremes included;
+1) K is a power of 2, with the exponent ranging from 6 to 16, extremes included;
 2) J is equal to K >> 1 (Right shift);
 3) L is equal to K >> 5 (Right shift);
 
